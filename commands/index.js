@@ -1,6 +1,6 @@
 import createService from "./createService.js";
-import commandB from "./commandB.js";
+import commandCreateApp from "./createApp.js";
 
-const commands = [createService, commandB];
+const commands = [createService, commandCreateApp];
 
 export default commands;
