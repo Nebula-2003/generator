@@ -1,23 +1,16 @@
-// // commandB.js
-// const commandB = {
-//     command: "create project <projectName> <path>",
-//     describe: "Create a new project",
-//     handler: (argv) => {
-//         console.log(`Creating a new project called ${argv.projectName}`);
-
-//     },
-// };
-
-// export default commandB;
 import path from "path";
+import { dirname } from "path";
 import fse from "fs-extra";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const commandCreateApp = {
     command: "create app <path>",
     describe: "Create an app from a template",
     handler: async (argv) => {
-        const templatePath = "../templates/fullApp"; // Replace with the path to your template
-
+        const templatePathRelative = "../templates/fullApp"; // Replace with the path to your template
+        const templatePath = path.join(__dirname, templatePathRelative);
         const destinationPath = path.join(process.cwd(), argv.path);
 
         try {
