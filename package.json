@@ -6,7 +6,15 @@
     "bin": {
         "generatorExpress": "./index.js"
     },
-    "keywords": [],
+    "keywords": [
+        "generator",
+        "express",
+        "node"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Nebula-2003/generator"
+    },
     "author": "Tejus",
     "type": "module",
     "dependencies": {

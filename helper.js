@@ -62,3 +62,12 @@ export const gitHelper = async ({ path, commitMessage = "Initial commit ✨" }) 
         console.error("Error initializing Git repository:", error);
     }
 };
+
+export const toConstantCase = (str) => {
+    return str
+        .replace(/([a-z])([A-Z])/g, "$1_$2")
+        .replace(/\W|_/g, " ")
+        .trim()
+        .replace(/ /g, "_")
+        .toUpperCase();
+};

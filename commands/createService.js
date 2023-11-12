@@ -1,4 +1,4 @@
-import { ejsHelper } from "../helper.js";
+import { ejsHelper, toConstantCase } from "../helper.js";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -19,11 +19,13 @@ const createService = {
             choices: ["es6", "es5"],
         });
         const { templateArray } = await import(`../templates/${version}/service/templateArray.js`);
+        const serviceNameFirstCap = argv.name.charAt(0).toUpperCase() + argv.name.slice(1);
+        const serviceNameConstCase = toConstantCase(argv.name);
         templateArray.forEach((template) => {
             ejsHelper({
                 templatePath: template.templatePath,
                 fName: `${argv.name}${template.fName}`,
-                data: { serviceName: argv.name },
+                data: { serviceName: argv.name, serviceNameFirstCap, serviceNameConstCase },
                 outFilePath,
             });
         });

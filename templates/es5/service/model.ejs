@@ -16,6 +16,6 @@ const <%= serviceName %>Schema = new Schema(
 
 <%= serviceName %>Schema.plugin(softDelete);
 
-const <%= serviceName %> = mongoose.model("<%= serviceName %>", <%= serviceName %>Schema);
+const <%= serviceNameFirstCap %> = mongoose.model("<%= serviceName %>", <%= serviceName %>Schema);
 
-module.exports = <%= serviceName %>;
+module.exports = <%= serviceNameFirstCap %>;

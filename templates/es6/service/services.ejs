@@ -1,36 +1,36 @@
-import <%= serviceName %>Model from './<%= serviceName %>.model.js';
+import <%= serviceNameFirstCap %>Model from './<%= serviceName %>.model.js';
 
 /**
  * add
  */
 export const add = async (reqBody) => {
-    return await <%= serviceName %>Model(reqBody).save();
+    return await <%= serviceNameFirstCap %>Model(reqBody).save();
 }
 
 /**
  * Get
  */
 export const get = async (id) => {
-    return await <%= serviceName %>Model.findOne({ _id: id }).sort({ created_at: -1 }).lean();
+    return await <%= serviceNameFirstCap %>Model.findOne({ _id: id }).sort({ created_at: -1 }).lean();
 }
 
 /**
  * List
  */
 export const list = async (query) => {
-    return await <%= serviceName %>Model.find(query).lean();
+    return await <%= serviceNameFirstCap %>Model.find(query).lean();
 }
 
 /**
  * update
  */
 export const update = async (id, reqBody) => {
-    return await <%= serviceName %>Model.findByIdAndUpdate({ _id: id }, { $set: reqBody }, { new: true }).lean();
+    return await <%= serviceNameFirstCap %>Model.findByIdAndUpdate({ _id: id }, { $set: reqBody }, { new: true }).lean();
 }
 
 /**
  * Delete
  */
 export const remove = async (id) => {
-    return await <%= serviceName %>Model.findByIdAndDelete({ _id: id }).lean();
+    return await <%= serviceNameFirstCap %>Model.findByIdAndDelete({ _id: id }).lean();
 }
