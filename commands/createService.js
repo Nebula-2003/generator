@@ -12,6 +12,7 @@ const createService = {
     handler: async (argv) => {
         let currentWorkingDir = process.cwd();
         let outFilePath = path.join(currentWorkingDir, argv.path);
+        console.log("=>(createService.js:15) outFilePath", outFilePath);
 
         templateArray.forEach((template) => {
             ejsHelper({

@@ -44,3 +44,4 @@ export const ejsHelper = async ({ templatePath, fName, data, outFilePath }) => {
         }
     });
 };
+
