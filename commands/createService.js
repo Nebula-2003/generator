@@ -2,7 +2,7 @@ import { ejsHelper } from "../helper.js";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import { templateArray } from "../templates/service/templateArray.js";
+import { templateArray } from "../templates/es6/service/templateArray.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

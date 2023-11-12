@@ -2,16 +2,25 @@ import path from "path";
 import inquirer from "inquirer";
 import fse from "fs-extra";
 import { gitHelper } from "../helper.js";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const commandCreateApp = {
     command: "create app <path>",
     describe: "Create an app from a template",
     handler: async (argv) => {
-        const templatePathRelative = "../templates/fullApp"; // Replace with the path to your template
-        const templatePath = path.join(__dirname, templatePathRelative);
-        const destinationPath = path.join(process.cwd(), argv.path);
-
         try {
+            const { version } = await inquirer.prompt({
+                type: "list",
+                name: "version",
+                message: "Which version of JavaScript do you want to use?",
+                choices: ["es6", "es5"],
+            });
+            const templatePathRelative = `../templates/${version}/fullApp`;
+            const templatePath = path.join(__dirname, templatePathRelative);
+            const destinationPath = path.join(process.cwd(), argv.path);
             await fse.ensureDir(destinationPath);
             await fse.copy(templatePath, destinationPath);
             const { shouldCommit } = await inquirer.prompt({
@@ -27,7 +36,7 @@ const commandCreateApp = {
                     message: "Enter the commit message:",
                     default: "Initial commit ✨",
                 });
-                await gitHelper.commitChanges(destinationPath, commitMessage);
+                await gitHelper(destinationPath, commitMessage);
                 console.log("Committing changes with message:", commitMessage);
             }
 
