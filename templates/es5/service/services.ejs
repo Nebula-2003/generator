@@ -1,0 +1,36 @@
+const <%= serviceName %>Model = require('./<%= serviceName %>.model.js');
+
+/**
+ * add
+ */
+exports.add = async function(reqBody) {
+    return await <%= serviceName %>Model(reqBody).save();
+}
+
+/**
+ * Get
+ */
+exports.get = async function(id) {
+    return await <%= serviceName %>Model.findOne({ _id: id }).sort({ created_at: -1 }).lean();
+}
+
+/**
+ * List
+ */
+exports.list = async function(query) {
+    return await <%= serviceName %>Model.find(query).lean();
+}
+
+/**
+ * update
+ */
+exports.update = async function(id, reqBody) {
+    return await <%= serviceName %>Model.findByIdAndUpdate({ _id: id }, { $set: reqBody }, { new: true }).lean();
+}
+
+/**
+ * Delete
+ */
+exports.remove = async function(id) {
+    return await <%= serviceName %>Model.findByIdAndDelete({ _id: id }).lean();
+}

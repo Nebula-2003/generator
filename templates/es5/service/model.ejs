@@ -1,0 +1,21 @@
+
+const mongoose = require("mongoose");
+const softDelete = require("mongoosejs-soft-delete");
+
+const Schema = mongoose.Schema;
+
+const <%= serviceName %>Schema = new Schema(
+    {
+        content: {
+            type: String,
+            default: "",
+        },
+    },
+    { timestamps: true, collection: "<%= serviceName %>" }
+);
+
+<%= serviceName %>Schema.plugin(softDelete);
+
+const <%= serviceName %> = mongoose.model("<%= serviceName %>", <%= serviceName %>Schema);
+
+module.exports = <%= serviceName %>;

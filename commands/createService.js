@@ -2,7 +2,7 @@ import { ejsHelper } from "../helper.js";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import { templateArray } from "../templates/es6/service/templateArray.js";
+import inquirer from "inquirer";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -12,8 +12,13 @@ const createService = {
     handler: async (argv) => {
         let currentWorkingDir = process.cwd();
         let outFilePath = path.join(currentWorkingDir, argv.path);
-        console.log("=>(createService.js:15) outFilePath", outFilePath);
-
+        const { version } = await inquirer.prompt({
+            type: "list",
+            name: "version",
+            message: "Which version of JavaScript do you want to use?",
+            choices: ["es6", "es5"],
+        });
+        const { templateArray } = await import(`../templates/${version}/service/templateArray.js`);
         templateArray.forEach((template) => {
             ejsHelper({
                 templatePath: template.templatePath,

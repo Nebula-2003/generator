@@ -5,6 +5,9 @@ import commands from "./commands/index.js";
 
 const argv = yargs(process.argv.slice(2));
 
+console.log('"Do or do not. There is no try." - Yoda');
+console.log("\n");
+
 argv.command(commands);
 
 // ERROR CONDITION: If wrong command is provided, show help (404)
