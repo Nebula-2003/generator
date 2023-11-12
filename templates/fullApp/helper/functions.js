@@ -1,14 +1,15 @@
-import Cryptr from 'cryptr';
-import { PhoneNumberUtil, PhoneNumberFormat } from 'google-libphonenumber';
+import Cryptr from "cryptr";
+import pkg from "google-libphonenumber";
+const { PhoneNumberUtil, PhoneNumberFormat } = pkg;
 
-const cryptr = new Cryptr('myTotalySecretKey');
+const cryptr = new Cryptr("myTotalySecretKey");
 const phoneUtil = PhoneNumberUtil.getInstance();
 const PNF = PhoneNumberFormat;
 
 const randomSixDigit = () => Math.floor(100000 + Math.random() * 900000);
 
 const replaceNullToBlankString = async (obj) => {
-    await Object.keys(obj).forEach(key => {
+    await Object.keys(obj).forEach((key) => {
         if (obj[key] === null) {
             obj[key] = "";
         }
@@ -18,7 +19,7 @@ const replaceNullToBlankString = async (obj) => {
 
 const formatNumber = async (phone_number, countryCode) => {
     try {
-        if (phone_number.substr(0, 1) !== '+') {
+        if (phone_number.substr(0, 1) !== "+") {
             let number = await phoneUtil.parseAndKeepRawInput(phone_number, countryCode);
             phone_number = phoneUtil.format(number, PNF.E164);
             return phone_number;
@@ -47,11 +48,4 @@ const matchPassword = async (password, encryptedPassword) => {
     return decryptedString === password;
 };
 
-export {
-    randomSixDigit,
-    replaceNullToBlankString,
-    formatNumber,
-    encryptStringCrypt,
-    CryptrdecryptStringCrypt,
-    matchPassword
-};
+export { randomSixDigit, replaceNullToBlankString, formatNumber, encryptStringCrypt, CryptrdecryptStringCrypt, matchPassword };

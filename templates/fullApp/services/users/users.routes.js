@@ -1,7 +1,7 @@
 import { Router } from "express";
-import controller from "./users.controller";
-import { guard } from '../../helper';
-import { userImageUpload as multerSetting } from "../../helper/multer";
+import controller from "./users.controller.js";
+import { guard } from '../../helper/index.js';
+import { userImageUpload as multerSetting } from "../../helper/multer.js";
 
 const router = Router();
 

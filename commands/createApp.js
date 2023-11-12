@@ -1,10 +1,5 @@
 import path from "path";
-import { dirname } from "path";
-import fse from "fs-extra";
-import { fileURLToPath } from "url";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
+    
 const commandCreateApp = {
     command: "create app <path>",
     describe: "Create an app from a template",

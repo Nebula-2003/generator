@@ -1,7 +1,7 @@
 import passport from "passport";
 import { Strategy as CustomStrategy } from "passport-custom";
-import usersModel from "../services/users/users.model";
-import commonFunctions from "./functions";
+import usersModel from "../services/users/users.model.js";
+import * as commonFunctions from "./functions.js";
 
 // Passport Custom Strategy for 'user'
 passport.use(

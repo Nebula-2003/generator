@@ -1,7 +1,7 @@
-import * as UsersService from "./users.services";
+import * as UsersService from "./users.services.js";
 import passport from "passport";
-import guard from "../../helper/guards";
-import { commonResponse, commonFunctions, nodemailer } from "../../helper";
+import * as guard from "../../helper/guards.js";
+import { commonResponse, commonFunctions, nodemailer } from "../../helper/index.js";
 
 export default {
 

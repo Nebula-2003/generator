@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import commonResponse from "./commonResponse";
-import Users from "../services/users/users.model";
+import * as commonResponse from "./commonResponse.js";
+import Users from "../services/users/users.model.js";
 
 const createToken = (user, type = "user") => {
   const payload = {

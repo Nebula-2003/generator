@@ -1,5 +1,5 @@
-import { commonResponse } from "../../helper";
-import UsersModel from "./users.model";
+import { commonResponse } from "../../helper/index.js";
+import UsersModel from "./users.model.js";
 
 export const is_exist = async (reqBody) => {
     return await UsersModel.findOne({ email: reqBody.email }).lean();

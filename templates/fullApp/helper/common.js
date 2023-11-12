@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment'
 
 const getMomentObject = (date, format = "DD-MM-YYYY") => moment(date, format);
 

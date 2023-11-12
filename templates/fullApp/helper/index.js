@@ -1,19 +1,10 @@
-import commonResponse from "./commonResponse";
-import commonFunctions from './functions';
-import nodemailer from "./nodemailer";
-import mongodb from "./mongodb";
-import passport from "./passport";
-import multerSetting from "./multer";
-import common from "./common";
-import guard from "./guards";
+import * as commonResponse from "./commonResponse.js";
+import * as commonFunctions from "./functions.js";
+import * as nodemailer from "./nodemailer.js";
+import * as mongodb from "./mongodb.js";
+import * as passport from "./passport.js";
+import * as multerSetting from "./multer.js";
+import * as common from "./common.js";
+import * as guard from "./guards.js";
 
-export {
-  commonResponse,
-  commonFunctions,
-  guard,
-  nodemailer,
-  mongodb,
-  passport,
-  multerSetting,
-  common
-};
+export { commonResponse, commonFunctions, guard, nodemailer, mongodb, passport, multerSetting, common };
