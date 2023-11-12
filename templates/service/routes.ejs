@@ -1,6 +1,8 @@
 import controller from"./<%= serviceName %>.controller"
-import router from "express".Router();
+import { Router } from "express";
 import { guard } from "../../helper";
+
+const router = Router();
 
 /*
  *  Add

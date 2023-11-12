@@ -31,6 +31,6 @@ export const update = async (id, reqBody) => {
 /**
  * Delete
  */
-export const delete = async (id) => {
+export const remove = async (id) => {
     return await <%= serviceName %>Model.findByIdAndDelete({ _id: id }).lean();
 }

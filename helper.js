@@ -1,11 +1,8 @@
 import path from "path";
 import fs from "fs";
 import ejs from "ejs";
-import { promisify } from "util";
 
 export const ejsHelper = async ({ templatePath, fName, data, outFilePath }) => {
-    // console.log("🚀 ~ file: helper.js:6 ~ ejsHelper ~ data:", data);
-    const directoryName = "new_directory";
 
     fs.mkdir(outFilePath, { recursive: true }, (err) => {
         if (err) {

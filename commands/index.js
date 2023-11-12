@@ -1,6 +1,6 @@
-import commandA from "./commandA.js";
+import createService from "./createService.js";
 import commandB from "./commandB.js";
 
-const commands = [commandA, commandB];
+const commands = [createService, commandB];
 
 export default commands;
