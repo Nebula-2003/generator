@@ -1,6 +1,4 @@
-# Express App Generator : DRAFT
-
-<!-- [![npm version](https://badge.fury.io/js/express-generator.svg)](https://badge.fury.io/js/express-generator) -->
+# Express App Generator
 
 This is a Node.js package for generating an Express app. It provides a command-line interface for creating a new Express app with a basic file structure and configuration.
 
@@ -9,7 +7,7 @@ This is a Node.js package for generating an Express app. It provides a command-l
 To install the package, run the following command:
 
 ```
-npm i -g express-app-generator
+npm i -g generator-express-dt
 ```
 
 ## Usage

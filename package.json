@@ -1,15 +1,14 @@
 {
-    "name": "generator",
-    "version": "1.0.0",
+    "name": "generator-express-dt",
+    "version": "1.0.01",
     "description": "",
     "main": "index.js",
     "bin": {
         "generatorExpress": "./index.js"
     },
     "keywords": [],
-    "author": "",
+    "author": "Tejus",
     "type": "module",
-    "license": "ISC",
     "dependencies": {
         "ejs": "^3.1.9",
         "figlet": "^1.7.0",
