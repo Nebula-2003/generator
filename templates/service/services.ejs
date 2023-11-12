@@ -1,40 +1,36 @@
 import <%= serviceName %>Model from './<%= serviceName %>.model.js';
-/** 
- * add
-*/
 
-exports.add = async (reqBody) => {
+/**
+ * add
+ */
+export const add = async (reqBody) => {
     return await <%= serviceName %>Model(reqBody).save();
 }
 
-/** 
- *Get
-*/
-
-exports.get = async (id) => {
+/**
+ * Get
+ */
+export const get = async (id) => {
     return await <%= serviceName %>Model.findOne({ _id: id }).sort({ created_at: -1 }).lean();
 }
 
-/** 
- *List
-*/
-
-exports.list = async (query) => {
+/**
+ * List
+ */
+export const list = async (query) => {
     return await <%= serviceName %>Model.find(query).lean();
 }
 
-/** 
- *update
-*/
-
-exports.update = async (id, reqBody) => {
+/**
+ * update
+ */
+export const update = async (id, reqBody) => {
     return await <%= serviceName %>Model.findByIdAndUpdate({ _id: id }, { $set: reqBody }, { new: true }).lean();
 }
 
-/** 
- *Delete
-*/
-
-exports.delete = async (id) => {
+/**
+ * Delete
+ */
+export const delete = async (id) => {
     return await <%= serviceName %>Model.findByIdAndDelete({ _id: id }).lean();
 }

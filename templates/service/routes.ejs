@@ -1,6 +1,6 @@
-const controller = require("./<%= serviceName %>.controller");
-const router = require("express").Router();
-const { guard } = require("../../helper");
+import controller from"./<%= serviceName %>.controller"
+import router from "express".Router();
+import { guard } from "../../helper";
 
 /*
  *  Add
@@ -27,4 +27,4 @@ router.put("/update/:id", controller.update);
  */
 router.delete("/delete/:id", controller.delete);
 
-module.exports = router;
+export default router;

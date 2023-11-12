@@ -9,11 +9,11 @@ const commandA = {
     command: "add-service <name> <path>",
     describe: "Add a new service to the project",
     handler: async (argv) => {
-        console.log("🚀 ~ file: commandA.js:7 ~ handler: ~ argv", argv);
+        // console.log("🚀 ~ file: commandA.js:7 ~ handler: ~ argv", argv);
         let pathTemp = process.cwd();
-        console.log("🚀 ~ file: commandA.js:9 ~ handler: ~ pathTemp:", pathTemp);
+        // console.log("🚀 ~ file: commandA.js:9 ~ handler: ~ pathTemp:", pathTemp);
         let pathFinal = path.join(pathTemp, argv.path);
-        console.log("🚀 ~ file: commandA.js:11 ~ handler: ~ pathFinal:", pathFinal);
+        // console.log("🚀 ~ file: commandA.js:11 ~ handler: ~ pathFinal:", pathFinal);
         const templatePath = path.join(__dirname, "..", "templates", "service", "services.ejs");
         const templatePathServices = path.join(__dirname, "..", "templates", "service", "services.ejs");
         const templatePathModel = path.join(__dirname, "..", "templates", "service", "model.ejs");
@@ -21,7 +21,7 @@ const commandA = {
         const templatePathRoutes = path.join(__dirname, "..", "templates", "service", "routes.ejs");
         const templatePathIndex = path.join(__dirname, "..", "templates", "service", "index.ejs");
         
-        console.log("🚀 ~ file: commandA.js:14 ~ handler: ~ templatePath:", templatePath);
+        // console.log("🚀 ~ file: commandA.js:14 ~ handler: ~ templatePath:", templatePath);
         ejsHelper({
             templatePath: templatePathServices,
             fName: `${argv.name}.services.js`,

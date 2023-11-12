@@ -1,12 +1,13 @@
 import path from "path";
 import fs from "fs";
 import ejs from "ejs";
+import { promisify } from "util";
 
-export const ejsHelper = ({ templatePath, fName, data, outFilePath }) => {
+export const ejsHelper = async ({ templatePath, fName, data, outFilePath }) => {
     // console.log("🚀 ~ file: helper.js:6 ~ ejsHelper ~ data:", data);
     const directoryName = "new_directory";
 
-    fs.mkdir(outFilePath, (err) => {
+    fs.mkdir(outFilePath, { recursive: true }, (err) => {
         if (err) {
             if (err.code === "EEXIST") {
                 // console.error("Directory already exists");
