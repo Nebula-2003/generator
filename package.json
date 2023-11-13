@@ -1,6 +1,6 @@
 {
-    "name": "generator-express-dt",
-    "version": "1.0.2",
+    "name": "@nebula2003/generator-express",
+    "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "bin": {
@@ -25,5 +25,5 @@
         "simple-git": "^3.20.0",
         "yargs": "^17.7.2"
     },
-    "license":"MIT"
+    "license": "MIT"
 }

@@ -7,7 +7,7 @@ This is a Node.js package for generating an Express app. It provides a command-l
 To install the package, run the following command:
 
 ```
-npm i -g generator-express-dt
+npm i -g @nebula2003/generator-express
 ```
 
 ## Usage
