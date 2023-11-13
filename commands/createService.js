@@ -22,9 +22,15 @@ const createService = {
         const serviceNameFirstCap = argv.name.charAt(0).toUpperCase() + argv.name.slice(1);
         const serviceNameConstCase = toConstantCase(argv.name);
         templateArray.forEach((template) => {
+            let fName;
+            if (template.fName === "index.js") {
+                fName = "index.js";
+            } else {
+                fName = `${argv.name}${template.fName}`;
+            }
             ejsHelper({
                 templatePath: template.templatePath,
-                fName: `${argv.name}${template.fName}`,
+                fName,
                 data: { serviceName: argv.name, serviceNameFirstCap, serviceNameConstCase },
                 outFilePath,
             });
