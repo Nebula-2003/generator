@@ -1,10 +1,10 @@
 {
-  "name": "restaurants_app",
+  "name": "boiler-plat",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "pm2 start ecosystem.config.js --env production",
-    "stop": "pm2 stop restaurants_app",
+    "start": "pm2 start ecosystem.config.js --env local",
+    "stop": "pm2 stop boiler-plat",
     "nodemon": "nodemon -r dotenv/config bin/www"
   },
   "dependencies": {

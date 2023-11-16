@@ -2,7 +2,7 @@ module.exports = {
     apps: [
         {
             name: "boiler-plat",
-            script: "./bin/www",
+            script: "./bin/www.js",
             watch: true,
             ignore_watch: ["node_modules", "public", "logs"],
             env_local: {
