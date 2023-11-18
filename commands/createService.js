@@ -9,6 +9,17 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const createService = {
     command: "add-service <name> <path>",
     describe: "Add a new service to the project",
+    builder: (yargs) => {
+        yargs
+            .positional("name", {
+                describe: "Name of the service",
+                type: "string",
+            })
+            .positional("path", {
+                describe: "Path for the service",
+                type: "string",
+            });
+    },
     handler: async (argv) => {
         let currentWorkingDir = process.cwd();
         let outFilePath = path.join(currentWorkingDir, argv.path);

@@ -10,6 +10,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const commandCreateApp = {
     command: "create app <path>",
     describe: "Create an app from a template",
+    builder: (yargs) => {
+        yargs.positional("path", {
+            describe: "Path to the app",
+            type: "string",
+        });
+    },
     handler: async (argv) => {
         try {
             const { version } = await inquirer.prompt({

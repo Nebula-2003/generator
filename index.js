@@ -1,24 +1,20 @@
 #!/usr/bin/env node
 
-import yargs from "yargs";
-import commands from "./commands/index.js";
-
-const argv = yargs(process.argv.slice(2));
+import yargs from "./yargsconfig.js";
 
 console.log('"Do or do not. There is no try." - Yoda');
 console.log("\n");
+// Define supported commands
+const supportedCommands = ["create app", "add-service"];
 
-argv.command(commands);
-
-// ERROR CONDITION: If wrong command is provided, show help (404)
-const descriptions = commands.map((command) => command.describe).join("\n");
-const customHelp = `Available commands:\n${descriptions}`;
-
-argv
+// Handle the case where no specific command is provided or an unsupported command is provided
+yargs
     .scriptName("generator")
-    .command("*", false, () => {
-        argv.showHelp();
+    // .command(supportedCommands, false, () => {})
+    .command("*", "Unsupported command", (yargs) => {
+        console.error("Error: Unsupported command. Supported commands are:");
+        supportedCommands.forEach((cmd) => {
+            console.error(`  - ${cmd}`);
+        });
     })
-    .demandCommand()
-    .help()
-    .alias("help", "h").argv;
+    .demandCommand().argv;
