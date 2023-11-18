@@ -4,6 +4,7 @@ module.exports = {
             name: "boiler-plat",
             script: "./bin/www.js",
             watch: true,
+            interpreter: "babel-node",
             ignore_watch: ["node_modules", "public", "logs"],
             env_local: {
                 PORT: 4800,

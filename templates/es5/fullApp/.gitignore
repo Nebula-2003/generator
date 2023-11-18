@@ -1,0 +1,12 @@
+#node / npm
+node_modules
+package-lock.json
+
+
+#editor
+.idea
+.vscode
+
+#constants
+ecosystem.config.js
+ecosystem.config.cjs
