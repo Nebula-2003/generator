@@ -63,8 +63,6 @@ npm i -g pm2
 
     // Iterate through each code block and add a copy button
     bashCodeBlocks.forEach(function (codeBlock) {
-      var parent = codeBlock.parentNode;
-
       // Create a copy button
       var copyButton = document.createElement('button');
       copyButton.className = 'copy-button';
@@ -73,16 +71,19 @@ npm i -g pm2
       // Create a div to wrap the code block and copy button
       var wrapper = document.createElement('div');
       wrapper.className = 'code-block-wrapper';
-      wrapper.appendChild(copyButton);
 
-      // Append the wrapper to the parent of the code block
-      parent.replaceChild(wrapper, codeBlock);
-      wrapper.appendChild(codeBlock);
+      // Clone the code block and add it to the wrapper
+      var codeBlockClone = codeBlock.cloneNode(true);
+      wrapper.appendChild(copyButton);
+      wrapper.appendChild(codeBlockClone);
+
+      // Replace the original code block with the wrapper
+      codeBlock.parentNode.replaceChild(wrapper, codeBlock);
 
       // Set up Clipboard.js for the copy button
       var clipboard = new ClipboardJS(copyButton, {
         target: function (trigger) {
-          return trigger.nextElementSibling; // The code block
+          return trigger.nextElementSibling; // The cloned code block
         }
       });
 
