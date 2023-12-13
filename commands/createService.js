@@ -29,10 +29,22 @@ const createService = {
             message: "Which version of JavaScript do you want to use?",
             choices: ["es6", "es5"],
         });
-        const { templateArray } = await import(`../templates/${version}/service/templateArray.js`);
+        let templateArray;
+        if (version === "es6") {
+            const { classBased } = await inquirer.prompt({
+                type: "confirm",
+                name: "classBased",
+                message: "Do you want to use Class in the services?",
+                // choices: ["es6", "es5"],
+            });
+            templateArray = await import(`../templates/${version}/service_class/templateArray.js`);
+            console.log("🚀 ~ file: createService.js:42 ~ handler: ~ templateArray:", templateArray);
+        } else {
+            templateArray = await import(`../templates/${version}/service/templateArray.js`);
+        }
         const serviceNameFirstCap = argv.name.charAt(0).toUpperCase() + argv.name.slice(1);
         const serviceNameConstCase = toConstantCase(argv.name);
-        templateArray.forEach((template) => {
+        templateArray.default.forEach((template) => {
             let fName;
             if (template.fName === "index.js") {
                 fName = "index.js";
