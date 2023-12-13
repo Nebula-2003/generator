@@ -22,7 +22,7 @@ const createService = {
     },
     handler: async (argv) => {
         let currentWorkingDir = process.cwd();
-        let outFilePath = path.join(currentWorkingDir, argv.path + argv.name);
+        let outFilePath = path.join(currentWorkingDir, argv.path , argv.name);
         const { version } = await inquirer.prompt({
             type: "list",
             name: "version",
