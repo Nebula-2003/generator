@@ -4,7 +4,7 @@ class <%= serviceName %>{
     /**
      * Add
      */
-    static async create (req, res, next) => {
+    static async create (req, res, next) {
         try {
             let data = await Service.add(req.body);
             if (data) {
@@ -15,13 +15,13 @@ class <%= serviceName %>{
         } catch (error) {
             return commonResponse.CustomError(res, "DEFAULT_INTERNAL_SERVER_ERROR", 500, {}, error.message);
         }
-    },
+    }
 
     /**
      * Get
      */
 
-    static async create(req, res, next) => {
+    static async get(req, res, next) {
         try {
             let data = await Service.get(req.params.id);
             if (data) {
@@ -32,13 +32,13 @@ class <%= serviceName %>{
         } catch (error) {
             return commonResponse.CustomError(res, "DEFAULT_INTERNAL_SERVER_ERROR", 500, {}, error.message);
         }
-    },
+    }
 
     /**
      * List
      */
 
-    static async create(req, res, next) => {
+    static async list(req, res, next) {
         try {
             let query = {};
             let listAll = await Service.list(query);
@@ -50,13 +50,13 @@ class <%= serviceName %>{
         } catch (error) {
             return commonResponse.CustomError(res, "DEFAULT_INTERNAL_SERVER_ERROR", 500, {}, error.message);
         }
-    },
+    }
 
     /**
      * Update
      */
 
-    static async create(req, res, next) => {
+    static async update(req, res, next) {
         try {
             let update = await Service.update(req.params.id, req.body);
             if (update) {
@@ -67,13 +67,13 @@ class <%= serviceName %>{
         } catch (error) {
             return commonResponse.CustomError(res, "DEFAULT_INTERNAL_SERVER_ERROR", 500, {}, error.message);
         }
-    },
+    }
 
     /**
      * delete
      */
 
-    static async create(req, res, next) => {
+    static async delete(req, res, next) {
         try {
             let deleteTerms = await Service.delete(req.params.id);
             if (deleteTerms) {
@@ -84,5 +84,7 @@ class <%= serviceName %>{
         } catch (error) {
             return commonResponse.CustomError(res, "DEFAULT_INTERNAL_SERVER_ERROR", 500, {}, error.message);
         }
-    },
+    }
 };
+
+export default <%= serviceName %>;
