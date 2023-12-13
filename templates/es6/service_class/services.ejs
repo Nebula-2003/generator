@@ -5,36 +5,38 @@ class <%= serviceName %>{
     /**
     * add
     */
-    static async add (reqBody) => {
+    static async add (reqBody) {
         return await <%= serviceNameFirstCap %>Model(reqBody).save();
     }
 
     /**
     * Get
     */
-    static async get (id) => {
+    static async get (id) {
         return await <%= serviceNameFirstCap %>Model.findOne({ _id: id }).sort({ created_at: -1 }).lean();
     }
 
     /**
     * List
     */
-    static async list (query) => {
+    static async list (query) {
         return await <%= serviceNameFirstCap %>Model.find(query).lean();
     }
 
     /**
     * update
     */
-    static async update (id, reqBody) => {
+    static async update (id, reqBody) {
         return await <%= serviceNameFirstCap %>Model.findByIdAndUpdate({ _id: id }, { $set: reqBody }, { new: true }).lean();
     }
 
     /**
     * Delete
     */
-    static async delete (id) => {
+    static async delete (id) {
         return await <%= serviceNameFirstCap %>Model.findByIdAndDelete({ _id: id }).lean();
     }
 
 }
+
+export default <%= serviceName %>;
