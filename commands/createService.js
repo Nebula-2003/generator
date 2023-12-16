@@ -22,7 +22,7 @@ const createService = {
     },
     handler: async (argv) => {
         let currentWorkingDir = process.cwd();
-        let outFilePath = path.join(currentWorkingDir, argv.path , argv.name);
+        let outFilePath = path.join(currentWorkingDir, argv.path, argv.name);
         const { version } = await inquirer.prompt({
             type: "list",
             name: "version",
@@ -38,7 +38,7 @@ const createService = {
                 // choices: ["es6", "es5"],
             });
             templateArray = await import(`../templates/${version}/service_class/templateArray.js`);
-            console.log("🚀 ~ file: createService.js:42 ~ handler: ~ templateArray:", templateArray);
+            // console.log("🚀 ~ file: createService.js:42 ~ handler: ~ templateArray:", templateArray);
         } else {
             templateArray = await import(`../templates/${version}/service/templateArray.js`);
         }
