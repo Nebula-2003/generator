@@ -10,7 +10,7 @@ const templatePathController = path.join(__dirname, "controller.ejs");
 const templatePathRoutes = path.join(__dirname, "routes.ejs");
 const templatePathIndex = path.join(__dirname, "index.ejs");
 
-export const templateArray = [
+export default [
     {
         templatePath: templatePathServices,
         fName: `.services.js`,
