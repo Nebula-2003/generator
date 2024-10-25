@@ -53,3 +53,18 @@ npm i -g pm2
 ```
 
 **Note:** The ES6 version of this Express app includes Babel for compatibility with older packages that use `require`. Make sure to follow the steps in the [Running the Application](#running-the-application) section to set up and run the application with Babel and PM2.
+
+## Todo :
+
+- Add eslint, prettier configs.
+- Improve template
+  - Guard clauses
+  - Dependency Updates
+  - Change scripts to pnpm
+  - Add typescipt support
+  - Better logging (elk/grafaan integration)
+  - Redis integration
+  - Remove unnecessary code in templates i.e. imporove template quality
+- ecosystem.config.js is not rm from npm.
+
+
